@@ -1,0 +1,12 @@
+<form (ngSubmit)="save()" class="form-inline">
+    <div class="modal-body">
+        <div class="file-upload-wrapper">
+            <span *ngIf="filename == null">Click to upload file from your computer</span>
+            <span *ngIf="filename != null">{{filename}}</span>
+            <input type="file" id="input-file" name="filename" class="file-upload" [(ngModel)]="filename" />
+        </div>
+    </div>
+    <div class="modal-footer">
+        <button class="button button--success">Download CSV template file</button>
+    </div>
+</form>

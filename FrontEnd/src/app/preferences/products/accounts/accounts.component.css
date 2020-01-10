@@ -1,0 +1,32 @@
+.switch__container {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+}
+
+.switch {
+    margin: 0 10px;
+}
+
+.switch__value {
+    width: 26px;
+}
+
+.input-toggle_wrap {
+    margin-right: 20px;
+}
+
+button.add-source-btn {
+    padding: 5px 10px;
+    font-size: 16px;
+}
+
+td a.sync-btn {
+    color: #007bff;
+    text-decoration: underline !important;
+    cursor: pointer;
+}
+
+td img {
+    width: 24px;
+}

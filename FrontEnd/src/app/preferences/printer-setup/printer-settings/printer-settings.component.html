@@ -1,0 +1,44 @@
+<app-preferences-navigation navigationType="printers"></app-preferences-navigation>
+<div class="printer-settings">
+    <div [hidden]="!loading" class="ldr-overlay">
+        <div class="lds-ripple">
+            <div></div>
+            <div></div>
+        </div>
+    </div>
+    <div class="row toolbar"><button class="button button--success">Add Label</button></div>
+    <div class="row">
+        <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3">
+            <ul class="label-sidebar">
+                <li *ngFor="let size of sizes index as i" (click)="selectedIndex = i" [class.selected]="selectedIndex === i">
+                    <span>{{size.Label}} - {{size.Name}}</span></li>
+            </ul>
+        </div>
+        <div class="col-lg-9 col-md-9 col-sm-9 col-xs-9 form-content">
+            <div class="sub-toolbar">
+                <button class="button button--success" id="duplicteBtn">Duplicate</button>
+                <button class="button button--success" id="deleteBtn">Delete</button>
+                <button class="button button--success" id="saveBtn">Save</button>
+            </div>
+            <div class="row">
+                <label class="col-lg-2 col-md-2 col-sm-2 col-xs-2">Name</label>
+                <input id="name" type="text" class="form-control" [(ngModel)]="sizes[selectedIndex]['Name']">
+            </div>
+            <div class="row">
+                <label class="col-lg-2 col-md-2 col-sm-2 col-xs-2">Size</label>
+                <input id="sizeX" type="text" class="form-control size-input" value="4">
+                <span style="margin:0 .5em;">&#88;</span>
+                <input id="sizeY" type="text" class="form-control size-input" value="2">
+            </div>
+            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">Label Data</div>
+            <div class="row" style="align-items: initial;">
+                <div class="col-lg-7 col-md-7 col-sm-7 col-xs-7">
+                    <textarea [(ngModel)]="sizes[selectedIndex]['Zpl']" class="zpl-code"></textarea>
+                </div>
+                <div class="col-lg-5 col-md-5 col-sm-5 col-xs-5">
+                    <img src="../assets/images/image.png">
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

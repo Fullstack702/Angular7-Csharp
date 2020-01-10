@@ -1,0 +1,96 @@
+.switch__container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.switch {
+    margin: 0 10px;
+}
+
+.switch__value {
+    width: 26px;
+}
+
+.input-toggle_wrap {
+    margin-right: 20px;
+}
+
+button.add-source-btn {
+    padding: 5px 10px;
+    font-size: 16px;
+}
+
+.table-emb thead th {
+    padding: 20px 12px;
+}
+
+td a.edit-btn {
+    color: #baccdf;
+    text-decoration: underline !important;
+    cursor: pointer;
+}
+
+div.dropdown>button {
+    background: white;
+    border: 1px solid gray;
+    border-radius: 2px;
+    min-width: 10em;
+}
+
+div.dropdown ul {
+    width: 120%;
+    top: -20% !important;
+    left: -10% !important;
+    border: 1px solid gray;
+    border-radius: 2px;
+    min-width: 15em;
+}
+
+div.dropdown ul li {
+    padding: 0.5em 0.1em;
+}
+
+.dropdown-item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-right: 0.5em;
+}
+
+button.dropdown-toggle span {
+    font-size: 16px;
+    font-weight: 500;
+}
+
+.dropdown-item>div {
+    max-width: 80%;
+    line-height: 1;
+}
+
+.dropdown-item>div span:first-child {
+    font-weight: 500;
+    font-size: 16px;
+}
+
+.dropdown-item>div span:last-child {
+    font-size: 12px;
+}
+
+span.checkmark {
+    display: none;
+    font-weight: 800;
+}
+
+.dropdown-item.selected span.checkmark {
+    display: block;
+}
+
+.dropdown-toggle::after {
+    margin-top: 0.6em;
+}
+
+div.dropdown>button {
+    display: flex;
+    justify-content: space-between;
+}

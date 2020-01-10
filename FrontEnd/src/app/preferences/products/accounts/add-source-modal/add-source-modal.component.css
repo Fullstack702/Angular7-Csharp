@@ -1,0 +1,93 @@
+.modal-header {
+    padding: 1rem 2rem;
+    border: none;
+}
+
+div.description {
+    color: #0a55a1;
+    font-size: 14px;
+    margin-top: 50px;
+    margin-bottom: 20px;
+    font-weight: bold;
+}
+
+.modal-footer {
+    border: none;
+}
+
+.modal-body {
+    padding: 1rem 2rem;
+}
+
+.modal-title {
+    font-size: 23px;
+    color: grey;
+    font-weight: 400;
+}
+
+strong {
+    font-weight: 900;
+    font-size: 14px;
+    color: #555;
+}
+
+input {
+    width: 100%;
+    max-width: 390px;
+    color: #555;
+}
+
+div.form-group {
+    margin-bottom: 30px;
+}
+
+div.form-group>.form-control {
+    min-width: 260px;
+}
+
+div.form-group>label {
+    min-width: 150px;
+    text-align: left;
+    justify-content: flex-start;
+    font-size: 16px;
+    color: grey;
+    font-weight: 400;
+}
+
+div.type-image>label {
+    display: inline;
+}
+
+div.type-image>label.selected img {
+    border: 2px solid #0a55a1;
+}
+
+div.type-image img {
+    width: 100px;
+    padding: 15px 20px;
+    border: 2px #e1e1e1 solid;
+    border-radius: 5px;
+    margin-right: 20px;
+}
+
+div.type-image input {
+    display: none;
+}
+
+div.type-image img:hover {
+    border: 2px solid #0a55a1;
+}
+
+.modal-footer {
+    width: 100%;
+    justify-content: flex-end;
+}
+
+.modal-footer a {
+    font-size: 14px;
+    color: white;
+    background: #0a55a1;
+    padding: 5px 20px;
+    border-radius: 30px;
+    text-decoration: none;
+}

@@ -1,0 +1,52 @@
+div.container * {
+    color: gray;
+}
+
+div.page-title {
+    padding-top: 40px
+}
+
+form {
+    max-width: 500px;
+}
+
+form div.form-group {
+    margin-bottom: 1rem;
+}
+
+form label {
+    min-width: 150px;
+    justify-content: flex-start;
+    font-size: 18px;
+    font-weight: 500;
+}
+
+.form-group>input,
+.form-group>div {
+    min-width: 350px;
+}
+
+div.dropdown * {
+    width: 100%;
+    min-width: 0px;
+}
+
+.dropdown-toggle::after {
+    margin-top: 0.5em;
+}
+
+div.dropdown>button {
+    display: flex;
+}
+
+input#city {
+    min-width: 150px;
+    width: 150px;
+    margin-right: 50px;
+}
+
+#save-btn {
+    padding: 0.2em 1.5em;
+    min-width: 0;
+    color: white;
+}

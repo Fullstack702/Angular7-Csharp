@@ -1,0 +1,50 @@
+<form (ngSubmit)="save(item)" class="form-inline">
+    <div class="modal-header">
+        <h4 class="modal-title pull-left">New Item Source</h4>
+        <!-- <button type="button" class="modal-close close pull-right" aria-label="Close" (click)="bsModalRef.hide()">
+      <span aria-hidden="true">&times;</span>
+    </button> -->
+    </div>
+    <div class="modal-body">
+        <div class="form-group">
+            <label>Account Type</label>
+            <div class="type-image">
+                <label [class.selected]="selectedType == 'finalinventory'">
+                    <img src="../../assets/images/finalinventory.png" />
+                    <input name="type" type="radio" value="finalinventory" [(ngModel)]="selectedType">
+                </label>
+                <label [class.selected]="selectedType == 'amazon'">
+                    <img src="../../assets/images/amazon.png" />
+                    <input name="type" type="radio" value="amazon" [(ngModel)]="selectedType">
+                </label>
+            </div>
+        </div>
+        <div class="description">Set Amazon developer permission &gt;</div>
+        <div class="form-group">
+            <label for="accountName">Account Name</label>
+            <input type="text" id="accountName" name="accountName" [(ngModel)]="item.accountName" class="form-control">
+        </div>
+        <div class="form-group">
+            <label for="accountName">Seller ID</label>
+            <input type="text" id="sellerId" name="sellerId" [(ngModel)]="item.sellerId" class="form-control">
+        </div>
+        <div class="form-group">
+            <label for="accountName">MWS Token</label>
+            <input type="text" id="mwsToken" name="mwsToken" [(ngModel)]="item.mwsToken" class="form-control">
+        </div>
+
+        <div class="form-group">
+            <label for="accountName">Marketplace</label>
+            <select id="marketPlace" name="marketPlace" class="form-control">
+                <option *ngFor="let marketPlace of marketPlaces" value="{{marketPlace.marketPlaceId}}">{{ marketPlace.marketPlaceName }}
+                </option>
+            </select>
+        </div>
+
+
+    </div>
+
+    <div class="modal-footer">
+        <a routerLink="/preferences/field-settings" class="sidebar__link" routerLinkActive="sidebar__link--active">Connect and Map fields &gt;</a>
+    </div>
+</form>

@@ -1,0 +1,101 @@
+<app-preferences-navigation navigationType="products"></app-preferences-navigation>
+<div class="form-row align-items-right product-top" style="direction: rtl;">
+
+    <div class="col-6 col-md-2 col-lg-2 py-2 text-right">
+        <button (click)="addField()" class="button button--success add-source-btn">Add Field</button>
+    </div>
+</div>
+<div class="row">
+    <div class="col-sm-12">
+        <div class="table-emb__container">
+            <div [hidden]="!loading" class="ldr-overlay">
+                <div class="lds-ripple">
+                    <div></div>
+                    <div></div>
+                </div>
+            </div>
+            <table class="table table-emb">
+                <thead>
+                    <th></th>
+                    <th (click)="SortBy('name')" class="align-middle pointer name">
+                        finale source field
+                        <!-- <img src="../../assets/images/arrowUp.png" alt="" class="arrow-img" [class.rotate]="!Criteria.Ascending" [hidden]="Criteria.SortBy !='s.name'" /> -->
+                    </th>
+                    <th (click)="SortBy('dateAdded')" class="pointer name">
+                        Amazon source field
+                        <!-- <img src="../../assets/images/arrowUp.png" alt="" class="arrow-img" [class.rotate]="!Criteria.Ascending" [hidden]="Criteria.SortBy != 's.SublocationStatus'" /> -->
+                    </th>
+                    <th (click)="SortBy('lastSynced')" class="pointer name text-center">
+                        Show on product list
+                        <!-- <img src="../../assets/images/arrowUp.png" alt="" class="arrow-img" [class.rotate]="!Criteria.Ascending" [hidden]="Criteria.SortBy !='p.Name'" /> -->
+                    </th>
+                    <th class="text-center">Available as filter</th>
+                    <th></th>
+                </thead>
+                <tr *ngFor="let field of fields index as i">
+                    <td class="align-middle">{{field.name}}
+                        <a *ngIf="field.id != 0 " (click)="onEdit()" class="edit-btn" style="margin-left: 10px;"><span>Edit</span></a>
+                    </td>
+                    <td class="align-middle">
+                        <div class="btn-group" class="dropdown" dropdown style="min-width: 150px;">
+                            <button id="select-finaleField" dropdownToggle type="button" class="btn btn-tp-select btn-block dropdown-toggle" aria-controls="dropdown-finaleField">
+                              <span>{{ field.finaleFieldName || "--Select--" }}</span>
+                            </button>
+                            <ul id="dropdown-finaleField" *dropdownMenu class="cat-list dropdown-menu" role="menu" aria-labelledby="select-finaleField">
+                                <li role="menuitem" *ngFor="let finaleField of finaleFields">
+                                    <div class="dropdown-item" (click)="selectFinaleField(i, finaleField)" [class.selected]="finaleField.name == field.finaleFieldName">
+                                        <div>
+                                            <span>{{finaleField.name}}</span><br/><span>{{finaleField.sample}}</span>
+                                        </div>
+                                        <span class="checkmark">&#10003;</span>
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
+                    </td>
+                    <td class="align-middle text-left">
+                        <div *ngIf="field.id != 3 " class="btn-group" class="dropdown" dropdown style="min-width: 150px;">
+                            <button id="select-amazonField" dropdownToggle type="button" class="btn btn-tp-select btn-block dropdown-toggle" aria-controls="dropdown-amazonField">
+                              <span>{{ field.amazonFieldName || "--Select--" }}</span>
+                            </button>
+                            <ul id="dropdown-amazonField" *dropdownMenu class="cat-list dropdown-menu" role="menu" aria-labelledby="select-amazonField">
+                                <li role="menuitem" *ngFor="let amazonField of amazonFields">
+                                    <div class="dropdown-item" (click)="selectAmazonField(i, amazonField)" [class.selected]="amazonField.name == field.amazonFieldName">
+                                        <div>
+                                            <span>{{amazonField.name}}</span><br/><span>{{amazonField.sample}}</span>
+                                        </div>
+                                        <span class="checkmark">&#10003;</span>
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
+                        <a *ngIf="field.id == 3 " (click)="Mapfield()" class="edit-btn"><span>Mapfield</span></a>
+                    </td>
+                    <td class="align-middle text-center">
+                        <div class="switch__container text-center">
+                            <div class="text-center">
+                                <label class="switch switch--margin">
+                                <input name="showProductList" (change)="saveStatus(field.showProductList)" [(ngModel)]="field.showProductList" type="checkbox" />
+                                <span class="slider round"></span>
+                              </label>
+                            </div>
+                        </div>
+                    </td>
+                    <td class="align-middle text-center">
+                        <div *ngIf="field.id != 0 " class="switch__container  text-center">
+                            <div class="text-center">
+                                <label class="switch switch--margin">
+                                  <input name="filter" (change)="saveStatus(field.availableFilter)" [(ngModel)]="field.availableFilter" type="checkbox" />
+                                  <span class="slider round"></span>
+                                </label>
+                            </div>
+                        </div>
+                    </td>
+                    <td class="align-middle text-center">
+                        <img *ngIf="field.id != 0 " src="./assets/images/delete-bin.png" style="width:24px;" />
+                    </td>
+                </tr>
+            </table>
+        </div>
+    </div>
+</div>

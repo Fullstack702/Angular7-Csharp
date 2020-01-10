@@ -1,0 +1,68 @@
+<app-preferences-navigation navigationType="products"></app-preferences-navigation>
+<div class="form-row align-items-right product-top" style="direction: rtl;">
+    <div class="col-6 col-md-2 col-lg-2 py-2 text-right">
+        <button (click)="uploadCSV()" class="button button--success add-source-btn">
+      Upload CSV
+    </button>
+    </div>
+    <div class="col-6 col-md-2 col-lg-2 py-2 text-right">
+        <button (click)="addSource()" class="button button--success add-source-btn">
+      Add Source
+    </button>
+    </div>
+</div>
+<div class="row">
+    <div class="col-sm-12">
+        <div class="table-emb__container">
+            <div [hidden]="!loading" class="ldr-overlay">
+                <div class="lds-ripple">
+                    <div></div>
+                    <div></div>
+                </div>
+            </div>
+            <table class="table table-emb">
+                <thead>
+                    <th></th>
+                    <th (click)="SortBy('name')" class="pointer name">
+                        Account Name
+                        <!-- <img src="../../assets/images/arrowUp.png" alt="" class="arrow-img" [class.rotate]="!Criteria.Ascending" [hidden]="Criteria.SortBy !='s.name'" /> -->
+                    </th>
+                    <th (click)="SortBy('dateAdded')" class="pointer name">
+                        Date Added
+                        <!-- <img src="../../assets/images/arrowUp.png" alt="" class="arrow-img" [class.rotate]="!Criteria.Ascending" [hidden]="Criteria.SortBy != 's.SublocationStatus'" /> -->
+                    </th>
+                    <th (click)="SortBy('lastSynced')" class="pointer name">
+                        Last synced
+                        <!-- <img src="../../assets/images/arrowUp.png" alt="" class="arrow-img" [class.rotate]="!Criteria.Ascending" [hidden]="Criteria.SortBy !='p.Name'" /> -->
+                    </th>
+                    <th>Added by</th>
+                    <th class="text-center">Status</th>
+                    <th class="text-center">Settings</th>
+                </thead>
+                <tr *ngFor="let account of accounts">
+                    <td><img [src]="'../../assets/images/' + account.type + '.png'" style="width:64px;" /></td>
+                    <td class="align-middle">{{ account.accountName }}</td>
+                    <td class="align-middle">{{ account.dateAdded}}</td>
+                    <td class="align-middle">
+                        {{ account.lastSynced}}
+                        <a (click)="Sync(account.accountId)" class="sync-btn" style="float: right;"><span>Sync</span></a>
+                    </td>
+                    <td class="align-middle">{{ account.addedBy}}</td>
+                    <td class="align-middle text-right">
+                        <div class="switch__container">
+                            <div class="text-center">
+                                <label class="switch switch--margin">
+                                  <input name="transfer" (change)="saveStatus(account.accountId)" [(ngModel)]="account.status" type="checkbox" />
+                                  <span class="slider round"></span>
+                                </label>
+                            </div>
+                        </div>
+                    </td>
+                    <td style="text-align: center;">
+                        <img src="../assets/images/gear-gray.png" />
+                    </td>
+                </tr>
+            </table>
+        </div>
+    </div>
+</div>
